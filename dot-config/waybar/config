@@ -1,0 +1,93 @@
+{
+    "layer": "top", // Waybar at top layer
+    "position": "top",
+    "height": 30,
+    // "width": 1280,
+    "spacing": 4,
+
+    "modules-left": ["hyprland/workspaces"],
+    "modules-center": ["clock"],
+    "modules-right": ["tray", "gamemode", "cpu", "memory", "wireplumber", "network", "battery"],
+
+    // Modules configuration
+    "hyprland/workspaces": {
+      "disable-scroll": true,
+      "all-outputs": true,
+      "warp-on-scroll": false,
+      "format": "{icon}",
+      "format-icons": {
+        "1": "󰈹",
+        "2": "",
+        "3": "󰨞",
+        "4": "󰙯",
+        "5": "",
+        "6": "󰇮",
+        "urgent": "",
+        "focused": "",
+        "default": ""
+      }
+    },
+    "clock": {
+        "interval": 60,
+        // "timezone": "Europe/London",
+        "format": "{:%R   %A %d/%m/%y} ",
+        "tooltip": false,
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+    "tray": {
+        "icon-size": 16,
+        "spacing": 10
+    },
+    "gamemode": {
+        "format": "{glyph}",
+        "format-alt": "{count} {glyph}",
+        "glyph": "",
+        "hide-not-running": true,
+        "use-icon": true,
+        "icon-name": "input-gaming-symbolic",
+        "icon-spacing": 4,
+        "tooltip": true,
+        "tooltip-format": "Games running: {count}"
+    },
+    "cpu": {
+        "interval": 2,
+        "format": "{usage}% ",
+        "tooltip": false
+    },
+    "memory": {
+        "interval": 2,
+        "format": "{percentage}% ",
+        "tooltip-format": "{used}/{total} used"
+    },
+    "wireplumber": {
+        "format": "{volume}% {icon}",
+        "format-muted": "",
+        "format-icons": ["", "", ""],
+        "on-click": "~/.config/hypr/scripts/audio.sh"
+    },
+    "network": {
+        "format-wifi": "{icon}",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "󰤫",
+        "format-alt": "{essid} | {ipaddr} {icon}",
+        "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"]
+    },
+    "battery": {
+        "interval": 2,
+        "states": {
+            "full": 100,
+            "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        "format-time": "{H}h {M}m",
+        "format-full": "{icon}",
+        "format-icons": ["", "", "", "", ""],
+        "tooltip-format": "Charged {capacity}%"
+    }
+}

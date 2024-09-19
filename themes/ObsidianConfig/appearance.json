@@ -1,0 +1,11 @@
+{
+  "accentColor": "#91bfff",
+  "cssTheme": "",
+  "showViewHeader": false,
+  "nativeMenus": false,
+  "enabledCssSnippets": [
+    "colours",
+    "ObsidianColours"
+  ],
+  "theme": "obsidian"
+}
