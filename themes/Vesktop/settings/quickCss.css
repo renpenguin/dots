@@ -50,3 +50,8 @@ div#channels > [class^="content_"] > div:first-child,
 [class^="itemsContainer"] > [class^="footer"] {
     display: none;
 }
+
+[class^="privateChannels"] [class^="content"] > [class^="container"] { /* Play Activities again */
+    display: none;
+}
+

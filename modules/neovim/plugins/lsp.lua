@@ -19,6 +19,7 @@ local on_attach = function(_, bufnr)
   bufmap('<leader>S', require('telescope.builtin').lsp_dynamic_workspace_symbols)
 
   bufmap('K', vim.lsp.buf.hover)
+  bufmap('<leader>e', vim.diagnostic.open_float)
 
   vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
     vim.lsp.buf.format()
@@ -58,4 +59,3 @@ require('lspconfig').rust_analyzer.setup {
 --         },
 --     }
 -- }
-
