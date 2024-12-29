@@ -19,6 +19,8 @@
     wl-clipboard wl-clip-persist
     fuzzel
     kitty
+    adwaita-icon-theme
+    hicolor-icon-theme
   ];
 
   home.file = {

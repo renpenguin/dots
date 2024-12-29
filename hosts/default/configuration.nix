@@ -1,5 +1,6 @@
 { inputs, pkgs, ... }: {
   imports = [
+    ../../modules/system
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.default
     ../../modules/thunar
@@ -14,84 +15,15 @@
   boot.plymouth.enable = true;
   services.fwupd.enable = true; # Framework BIOS updater
 
-  networking.hostName = "pingu2";
-  networking.networkmanager.enable = true;
-  systemd.services.NetworkManager-wait-online.enable = false; # Avoid waiting for network on boot
-
-  services.udev.extraRules = ''KERNEL=="ttyACM[0-9]*",MODE="0666"''; # Allow reading serial
-
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  system.stateVersion = "24.05"; # Do not change under any circumstance
-
-  time.timeZone = "Europe/London";
-
-  # User
+  ## User
   users.users.ren = {
     isNormalUser = true;
     extraGroups = [ "networkmanager" "wheel" "audio" "video" "dialout" ];
   };
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
-    users = {
-      "ren" = import ./home.nix;
-    };
+    users."ren" = import ./home.nix;
   };
-
-  programs.zsh.enable = true;
-  users.defaultUserShell = pkgs.zsh;
-
-  programs.neovim.enable = true;
-  programs.neovim.defaultEditor = true;
-
-  programs.hyprland.enable = true;
-
-  # Core packages
-  environment.systemPackages = with pkgs; [
-    killall
-    alsa-utils
-    usbutils
-    xdg-utils
-    unzip
-    ffmpeg
-
-    adwaita-icon-theme
-    hicolor-icon-theme
-  ];
-
-  # For Steam
-  hardware.graphics.enable32Bit = true;
-  hardware.pulseaudio.support32Bit = true;
-
-  fonts.packages = with pkgs; [
-    nerd-fonts.caskaydia-cove
-    nerd-fonts.caskaydia-mono
-    cantarell-fonts
-    noto-fonts
-    noto-fonts-cjk-sans
-    noto-fonts-emoji
-    cantarell-fonts
-    font-awesome
-    fira-code
-    fira-code-symbols
-  ];
-
-  # Sound
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    jack.enable = true;
-  };
-  hardware.pulseaudio.enable = false;
-
-  # Fingerprint
-  systemd.services.fprintd = {
-    wantedBy = [ "multi-user.target" ];
-    serviceConfig.Type = "simple";
-  };
-  services.fprintd.enable = true;
 
   # Login manager
   services.greetd = {
@@ -102,19 +34,30 @@
     };
   };
 
-  # Printing
-  services.printing.enable = true;
-  services.avahi = {
-    enable = true;
-    nssmdns4 = true;
-    openFirewall = true;
+  ## System config
+  system = {
+    network = {
+      enable = true;
+      hostName = "pingu2";
+    };
+    pipewire.enable = true;
+    laptop.enable = true;
+    printing.enable = true;
+    core-packages = {
+      enable = true;
+      fonts.enable = true;
+    };
+    fingerprint.enable = true;
   };
 
-  # Laptop
-  services.power-profiles-daemon.enable = true;
-  # services.thermald.enable = true;
+  programs.hyprland.enable = true;
 
-  services.logind.powerKey = "ignore";
+  # For Steam
+  hardware.graphics.enable32Bit = true;
+  hardware.pulseaudio.support32Bit = true;
+
+  # Allow reading serial
+  services.udev.extraRules = ''KERNEL=="ttyACM[0-9]*",MODE="0666"'';
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
