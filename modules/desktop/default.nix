@@ -36,6 +36,7 @@
     gtk2.configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
 
     theme.name = "Adwaita-dark";
+    gtk3.extraConfig.gtk-application-prefer-dark-theme = 1;
 
     iconTheme = {
       name = "Papirus-Dark";
