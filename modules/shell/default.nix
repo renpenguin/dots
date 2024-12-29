@@ -1,4 +1,4 @@
-{ ... }: {
+{ pkgs, ... }: {
   programs.zsh = {
     enable = true;
     dotDir = ".config/zsh";
@@ -9,7 +9,6 @@
 
     shellAliases = {
       rebuild = "sudo nixos-rebuild switch --fast --flake";
-      nixdiff = "nvd diff $(\\ls -d1v /nix/var/nix/profiles/system-*-link|tail -n 2)";
       search-history = "cat ~/.cache/zsh_history | grep";
       bg-run = "hyprctl dispatch exec --";
 
@@ -41,6 +40,9 @@
       theme = "robbyrussell";
     };
   };
+
+  home.packages = [ pkgs.nvd ];
+  home.shellAliases.nixdiff = "nvd diff $(\\ls -d1v /nix/var/nix/profiles/system-*-link|tail -n 2)";
 
   programs.fzf.enable = true;
   programs.thefuck.enable = true;
@@ -79,6 +81,7 @@
       theme_background = False
     '';
   };
+  xdg.desktopEntries.btop = { name = ""; noDisplay = true; };
 
   programs.cava.enable = true;
   home.file.".config/cava".source = ./cava;

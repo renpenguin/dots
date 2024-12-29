@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }: {
+{ pkgs, inputs, lib, ... }: {
   imports = [
     inputs.spicetify-nix.homeManagerModules.default
     ../../modules/desktop
@@ -46,4 +46,9 @@
       theme = spicePkgs.themes.catppuccin;
       colorScheme = "macchiato";
     };
+
+  xdg.desktopEntries = lib.attrsets.genAttrs [ 
+    "nm-connection-editor" "nixos-manual" "org.gnome.FileRoller"
+    "thunar-volman-settings" "thunar-settings" "thunar-bulk-rename"
+  ] (name: {name = ""; noDisplay = true; });
 }

@@ -52,7 +52,6 @@
     usbutils
     xdg-utils
     unzip
-    nvd
     ffmpeg
 
     adwaita-icon-theme
