@@ -11,7 +11,6 @@
     polkit_gnome
     networkmanagerapplet
     xwaylandvideobridge
-    catppuccin-cursors.macchiatoDark
     brightnessctl playerctl
     grim slurp hyprpicker jq
     wlogout
@@ -45,14 +44,14 @@
       name = "Cantarell";
       size = 11;
     };
-
-    cursorTheme = {
-      name = "catppuccin-macchiato-dark";
-      package = pkgs.catppuccin-cursors.macchiatoDark;
-      size = 24;
-    };
   };
 
   # Cursor
-  home.file.".local/share/icons/default".source = "${pkgs.catppuccin-cursors.macchiatoDark}/share/icons/catppuccin-macchiato-dark-cursors";
+  home.pointerCursor = {
+    gtk.enable = true;
+    x11.enable = true;
+    package = pkgs.catppuccin-cursors.macchiatoDark;
+    name = "catppuccin-macchiato-dark-cursors";
+    size = 24;
+  };
 }
