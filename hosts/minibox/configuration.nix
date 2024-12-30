@@ -26,6 +26,8 @@
     };
   };
 
+  services.logind.powerKey = "suspend";
+  services.logind.lidSwitch = "ignore";
   hardware.graphics.enable = true;
   security.polkit.enable = true;
 
