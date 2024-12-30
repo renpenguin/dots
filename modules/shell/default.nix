@@ -24,8 +24,6 @@
 
       autoload -U colors && colors
       PS1="[%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg[yellow]%}%~%{$reset_color%}]# "
-
-      fastfetch --config ${./fastfetch/startup.jsonc}
     '';
 
     history = {
@@ -73,6 +71,7 @@
   programs.fastfetch.enable = true;
   home.file.".config/fastfetch".source = ./fastfetch;
   home.shellAliases.fetch   = "clear && fastfetch";
+  home.shellAliases.minifetch   = "clear && fastfetch --config ${./fastfetch/startup.jsonc}";
 
   programs.btop = {
     enable = true;
