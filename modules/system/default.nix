@@ -1,10 +1,10 @@
 { pkgs, lib, config, inputs, ... }: # Default settings that are to appear on every configuration
 
 with lib;
-let cfg = config.system;
+let cfg = config.modules.system;
 
 in {
-  options.system = {
+  options.modules.system = {
     boot = {
       enable = mkEnableOption "boot";
       kernel = mkOption { type = types.raw; default = pkgs.linuxPackages_latest; };
@@ -104,7 +104,7 @@ in {
     (mkIf cfg.laptop.enable {
       services.power-profiles-daemon.enable = true;
       # services.thermald.enable = true;
-      services.logind = if cfg.laptop.ignorePowerKey then { powerKey = "ignore"; } else {};
+      services.logind = mkIf cfg.laptop.ignorePowerKey { powerKey = "ignore"; };
     })
 
     ## Printing

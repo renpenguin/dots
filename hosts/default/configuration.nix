@@ -7,7 +7,7 @@
   ];
 
   ## System config
-  system = {
+  modules.system = {
     boot.enable = true;
     mainUser = {
       enable = true;
