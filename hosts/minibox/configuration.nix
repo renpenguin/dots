@@ -34,7 +34,7 @@
       enable = true;
       hostName = "minibox";
     };
-    pipewire.enable = true;
+    audio.enable = true;
     laptop.enable = true;
     core-packages = {
       enable = true;

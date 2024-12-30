@@ -9,7 +9,7 @@ in {
       enable = mkEnableOption "network";
       hostName = mkOption { type = types.str; };
     };
-    pipewire.enable = mkEnableOption "pipewire";
+    audio.enable = mkEnableOption "audio";
     laptop = {
       enable = mkEnableOption "laptop";
       ignorePowerKey = mkOption {
@@ -34,7 +34,7 @@ in {
 
       programs.zsh.enable = true;
       users.defaultUserShell = pkgs.zsh;
-   
+
       programs.neovim.enable = true;
       programs.neovim.defaultEditor = true;
     }
@@ -47,7 +47,7 @@ in {
     })
 
     ## Sound
-    (mkIf cfg.pipewire.enable {
+    (mkIf cfg.audio.enable {
       security.rtkit.enable = true;
       services.pipewire = {
         enable = true;

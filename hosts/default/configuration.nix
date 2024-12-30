@@ -40,7 +40,7 @@
       enable = true;
       hostName = "pingu2";
     };
-    pipewire.enable = true;
+    audio.enable = true;
     laptop.enable = true;
     printing.enable = true;
     core-packages = {
