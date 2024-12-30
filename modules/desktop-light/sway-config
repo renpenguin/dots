@@ -1,0 +1,120 @@
+### Ren's minimal Sway configuration
+
+output * bg #1a1d2c solid_color
+
+default_border pixel 2
+client.focused "#91bfff" "#91bfff" "93b5af" "91bfff"
+
+### Idle configuration
+exec swayidle -w \
+         timeout 300 'swaylock -f -c 000000' \
+         timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+         before-sleep 'swaylock -f -c 000000'
+
+### Status Bar:
+bar {
+    position top
+
+    # When the status_command prints a new line to stdout, swaybar updates.
+    # The default just shows the current date and time.
+    status_command i3blocks
+
+    colors {
+        statusline #93b5af
+        background #151426
+        inactive_workspace #151426 #151426 #657b83
+        focused_workspace #151426 #151426 #93b5af
+    }
+}
+
+### Input configuration
+input * repeat_delay 300
+
+set $term kitty -o font_size=10
+
+# Open a terminal by default
+exec $term
+
+### Binds
+# Super key
+set $super Mod4
+
+bindsym $super+Q exec $term
+bindsym $super+C kill
+bindsym $super+a exec wmenu-run
+bindsym $super+v floating toggle
+bindsym $super+j layout toggle split
+bindsym $super+f fullscreen
+bindsym $super+Shift+space floating toggle
+bindsym $super+Shift+c reload
+bindsym $super+m exec swaymsg exit
+
+# Drag floating windows by holding down $super and left mouse button.
+# Resize them with right mouse button + $super.
+floating_modifier $super normal
+
+# Focus
+bindsym $super+Left focus left
+bindsym $super+Down focus down
+bindsym $super+Up focus up
+bindsym $super+Right focus right
+
+# Move the focused window with the same, but add Shift
+bindsym $super+Shift+Left move left
+bindsym $super+Shift+Down move down
+bindsym $super+Shift+Up move up
+bindsym $super+Shift+Right move right
+
+### Utilities:
+    # Special keys to adjust volume via PulseAudio
+    bindsym --locked XF86AudioMute exec pactl set-sink-mute \@DEFAULT_SINK@ toggle
+    bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume \@DEFAULT_SINK@ -5%
+    bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume \@DEFAULT_SINK@ +5%
+    bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
+    # Special keys to adjust brightness via brightnessctl
+    bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
+    bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
+    # Special key to take a screenshot with grim
+    bindsym Print exec grim
+
+# Swap focus between the tiling area and the floating area
+bindsym $super+n focus mode_toggle
+
+# Resizing containers:
+mode "resize" {
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
+
+    # Return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $super+r mode "resize"
+
+### Workspaces:
+# Switch to workspace
+bindsym $super+1 workspace number 1
+bindsym $super+2 workspace number 2
+bindsym $super+3 workspace number 3
+bindsym $super+4 workspace number 4
+bindsym $super+5 workspace number 5
+bindsym $super+6 workspace number 6
+bindsym $super+7 workspace number 7
+bindsym $super+8 workspace number 8
+bindsym $super+9 workspace number 9
+bindsym $super+0 workspace number 10
+# Move focused container to workspace
+bindsym $super+Shift+1 move container to workspace number 1
+bindsym $super+Shift+2 move container to workspace number 2
+bindsym $super+Shift+3 move container to workspace number 3
+bindsym $super+Shift+4 move container to workspace number 4
+bindsym $super+Shift+5 move container to workspace number 5
+bindsym $super+Shift+6 move container to workspace number 6
+bindsym $super+Shift+7 move container to workspace number 7
+bindsym $super+Shift+8 move container to workspace number 8
+bindsym $super+Shift+9 move container to workspace number 9
+bindsym $super+Shift+0 move container to workspace number 10
+
+include /etc/sway/config.d/*

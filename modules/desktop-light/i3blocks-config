@@ -1,0 +1,11 @@
+[time]
+command=date +'%R  '
+interval=60
+
+[date]
+command=date +'%d/%m/%Y  '
+interval=60
+
+[battery]
+command=echo "$(\cat /sys/class/power_supply/BAT*/capacity)%  "
+interval=60
