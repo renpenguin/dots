@@ -1,10 +1,24 @@
-{ pkgs, lib, config, ... }: # Default settings that are to appear on every configuration
+{ pkgs, lib, config, inputs, ... }: # Default settings that are to appear on every configuration
 
 with lib;
 let cfg = config.system;
 
 in {
   options.system = {
+    boot = {
+      enable = mkEnableOption "boot";
+      kernel = mkOption { type = types.raw; default = pkgs.linuxPackages_latest; };
+    };
+    mainUser = {
+      enable = mkEnableOption "mainUser";
+      name = mkOption { type = types.str; };
+      extraGroups = mkOption {
+        type = types.listOf types.str;
+        default = [];
+        description = "A main user is added to the wheel, networkmanager (if system.network is enabled) and audio (if system.audio is enabled) groups. You can add more groups here";
+      };
+      home = mkOption { type = types.path; };
+    };
 	  network = {
       enable = mkEnableOption "network";
       hostName = mkOption { type = types.str; };
@@ -18,8 +32,8 @@ in {
       };
     };
     printing.enable = mkEnableOption "printing";
-    core-packages = {
-      enable = mkEnableOption "core-packages";
+    corePackages = {
+      enable = mkEnableOption "corePackages";
       fonts.enable = mkEnableOption "fonts";
     };
     fingerprint.enable = mkEnableOption "fingerprint";
@@ -38,6 +52,32 @@ in {
       programs.neovim.enable = true;
       programs.neovim.defaultEditor = true;
     }
+
+    (mkIf cfg.boot.enable {
+      boot.kernelPackages = cfg.boot.kernel;
+      boot.loader.systemd-boot.enable = true;
+      boot.loader.efi.canTouchEfiVariables = true;
+      boot.loader.timeout = 0;
+      boot.kernelParams = [ "quiet" "loglevel=3" ];
+      boot.plymouth.enable = true;
+    })
+
+    ## Main user setup
+    (mkIf cfg.mainUser.enable {
+      users.users."${cfg.mainUser.name}" = {
+        isNormalUser = true;
+        extraGroups = mkMerge [
+          [ "wheel" ]
+          (mkIf cfg.network.enable [ "networkmanager" ])
+          (mkIf cfg.audio.enable [ "audio" ])
+          cfg.mainUser.extraGroups
+        ];
+      };
+      home-manager = {
+        extraSpecialArgs = { inherit inputs; };
+        users."${cfg.mainUser.name}" = import cfg.mainUser.home;
+      };
+    })
 
     ## Network
     (mkIf cfg.network.enable {
@@ -78,7 +118,7 @@ in {
     })
 
     ## Core Packages
-    (mkIf cfg.core-packages.enable {
+    (mkIf cfg.corePackages.enable {
       environment.systemPackages = with pkgs; [
         killall
         usbutils
@@ -87,7 +127,7 @@ in {
         ffmpeg
       ];
 
-      fonts = mkIf cfg.core-packages.fonts.enable {
+      fonts = mkIf cfg.corePackages.fonts.enable {
         packages = with pkgs; [
           cantarell-fonts
           noto-fonts-cjk-sans
