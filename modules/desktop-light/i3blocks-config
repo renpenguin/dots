@@ -1,3 +1,7 @@
+[local-ip]
+command=echo "$(ifconfig | sed -n '11p' | awk '{print $2}') 󰤨 "
+interval=once
+
 [time]
 command=date +'%R  '
 interval=60

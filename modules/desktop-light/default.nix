@@ -1,7 +1,7 @@
 { config, pkgs, ... }: {
   home.packages = with pkgs; [
     sway
-    foot wmenu i3blocks
+    foot wmenu i3blocks grim
     dconf
   ];
 
