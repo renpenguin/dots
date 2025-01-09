@@ -47,7 +47,7 @@
       colorScheme = "macchiato";
     };
 
-  xdg.desktopEntries = lib.attrsets.genAttrs [ 
+  xdg.desktopEntries = lib.attrsets.genAttrs [
     "nm-connection-editor" "nixos-manual" "org.gnome.FileRoller"
     "thunar-volman-settings" "thunar-settings" "thunar-bulk-rename"
   ] (name: {name = ""; noDisplay = true; });

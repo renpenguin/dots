@@ -15,8 +15,8 @@
     };
   };
 
-  outputs = { self, nixpkgs, ... }@inputs: 
-  let 
+  outputs = { self, nixpkgs, ... }@inputs:
+  let
     mkSystem = system: location: nixpkgs.lib.nixosSystem {
       system = system;
       modules = [
@@ -33,4 +33,3 @@
     };
   };
 }
-
