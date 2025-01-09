@@ -46,4 +46,5 @@
 
   services.fwupd.enable = true; # Framework BIOS updater
   services.udev.extraRules = ''KERNEL=="ttyACM[0-9]*",MODE="0666"''; # Allow reading serial
+  services.openssh.enable = true; # SSH
 }

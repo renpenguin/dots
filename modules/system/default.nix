@@ -44,7 +44,8 @@ in {
       system.stateVersion = "24.05"; # Do not change under any circumstance
       nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-      services.automatic-timezoned.enable = true;
+      # services.automatic-timezoned.enable = true;
+      time.timeZone = "Europe/London";
 
       programs.zsh.enable = true;
       users.defaultUserShell = pkgs.zsh;
