@@ -26,6 +26,7 @@
 
     vscode
     gcc rustup python3
+    godot_4
 
     thunderbird
     synology-drive-client
