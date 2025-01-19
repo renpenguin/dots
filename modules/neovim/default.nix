@@ -28,6 +28,7 @@
         plugin = lightline-vim;
         config = toLuaFile ./plugins/lightline.lua;
       }
+      vim-gitbranch
 
       { # Theme
       	plugin = tokyonight-nvim;
@@ -86,6 +87,7 @@
     '';
   };
   home.shellAliases.v = "nvim";
+  home.shellAliases.vdiff = "nvim $(git status --porcelain | awk '{print $2}')";
 
   # Clangd C-only config
   home.file.".config/clangd/config.yaml".text = ''CompileFlags:

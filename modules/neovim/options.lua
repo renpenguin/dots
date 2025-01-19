@@ -17,3 +17,16 @@ vim.o.expandtab = true
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
 vim.o.mouse = ''
+
+-- Open changed files in current git project
+vim.api.nvim_create_user_command('GitDiff', function(_)
+    local handle = io.popen("git status --porcelain | awk '{print $2}'")
+    local result = handle:read("*a")
+    handle:close()
+
+    for line in (result..'\n'):gmatch'(.-)\r?\n' do 
+        if line == "" then break end
+        vim.cmd.edit(line)
+    end
+end, {})
+
