@@ -97,7 +97,7 @@ in {
         pulse.enable = true;
         jack.enable = true;
       };
-      hardware.pulseaudio.extraClientConf = "cookie-file = /tmp/pulse-cookie"; # Remove .pulse-cookie from ~
+      services.pulseaudio.extraClientConf = "cookie-file = /tmp/pulse-cookie"; # Remove .pulse-cookie from ~
       environment.systemPackages = [ pkgs.alsa-utils ];
     })
 

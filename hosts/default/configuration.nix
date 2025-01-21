@@ -42,7 +42,7 @@
 
   # For Steam
   hardware.graphics.enable32Bit = true;
-  hardware.pulseaudio.support32Bit = true;
+  services.pulseaudio.support32Bit = true;
 
   services.fwupd.enable = true; # Framework BIOS updater
   services.udev.extraRules = ''KERNEL=="ttyACM[0-9]*",MODE="0666"''; # Allow reading serial
