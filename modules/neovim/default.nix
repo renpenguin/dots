@@ -46,6 +46,10 @@
         plugin = nvim-autopairs;
         config = toLua "require('nvim-autopairs').setup {}";
       }
+      {
+        plugin = guess-indent-nvim;
+        config = toLua "require('guess-indent').setup {}";
+      }
 
       { # Code completion
         plugin = nvim-cmp;
