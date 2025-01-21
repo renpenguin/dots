@@ -87,7 +87,7 @@
         "format-alt": "{time} {icon}",
         "format-time": "{H}h {M}m",
         "format-full": "{icon}",
-        "format-icons": ["", "", "", "", ""],
+        "format-icons": ["", "", "", ""],
         "tooltip-format": "Charged {capacity}%"
     }
 }

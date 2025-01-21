@@ -88,6 +88,7 @@
   };
   home.shellAliases.v = "nvim";
   home.shellAliases.vdiff = "nvim $(git status --porcelain | awk '{print $2}')";
+  programs.git.extraConfig.merge.tool = "nvimdiff";
 
   # Clangd C-only config
   home.file.".config/clangd/config.yaml".text = ''CompileFlags:

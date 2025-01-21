@@ -27,6 +27,8 @@ vim.api.nvim_create_user_command('GitDiff', function(_)
     for line in (result..'\n'):gmatch'(.-)\r?\n' do 
         if line == "" then break end
         vim.cmd.edit(line)
+        vim.cmd("bp")
     end
+    vim.cmd("bn") -- Switch to the first opened file
 end, {})
 
