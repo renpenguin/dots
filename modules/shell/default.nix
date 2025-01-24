@@ -39,8 +39,7 @@
     };
   };
 
-  home.packages = [ pkgs.nvd ];
-  home.shellAliases.nixdiff = "nvd diff $(\\ls -d1v /nix/var/nix/profiles/system-*-link|tail -n 2)";
+  home.shellAliases.nixdiff = "${pkgs.nvd}/bin/nvd diff $(\\ls -d1v /nix/var/nix/profiles/system-*-link|tail -n 2)";
 
   programs.fzf.enable = true;
   programs.thefuck.enable = true;
@@ -65,8 +64,13 @@
     extraConfig = {
       init.defaultBranch = "master";
       advice.addIgnoredFile = false;
+      push.followTags = true;
+      credential.helper = "manager";
+      # credential."https://github.com".username = "renpenguin";
+      credential.credentialStore = "cache";
     };
   };
+  home.packages = [ pkgs.git-credential-manager ];
 
   programs.fastfetch.enable = true;
   home.file.".config/fastfetch".source = ./fastfetch;

@@ -49,7 +49,7 @@
     };
 
   xdg.desktopEntries = lib.attrsets.genAttrs [
-    "nm-connection-editor" "nixos-manual" "org.gnome.FileRoller"
+    "nm-connection-editor" "nixos-manual" 
     "thunar-volman-settings" "thunar-settings" "thunar-bulk-rename"
   ] (name: {name = ""; noDisplay = true; });
 }

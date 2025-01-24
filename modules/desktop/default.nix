@@ -16,7 +16,7 @@
     wlogout
     dunst libnotify
     waybar
-    wl-clipboard wl-clip-persist
+    wl-clipboard wl-clip-persist wl-clipboard-x11
     fuzzel
     kitty
     adwaita-icon-theme

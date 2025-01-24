@@ -31,10 +31,10 @@
       vim-gitbranch
 
       { # Theme
-      	plugin = tokyonight-nvim;
+      	plugin = catppuccin-nvim;
 	      config = toLua ''
-            require('tokyonight').setup({ transparent = true })
-            vim.cmd[[colorscheme tokyonight]]
+            require('catppuccin').setup({ transparent_background = true })
+            vim.cmd[[colorscheme catppuccin-macchiato]]
 	      '';
       }
 

@@ -7,7 +7,7 @@
     ];
   };
 
-  environment.systemPackages = [ pkgs.imv pkgs.file-roller pkgs.xfce.exo ];
+  environment.systemPackages = with pkgs; [ imv file-roller xfce.exo ];
 
   programs.xfconf.enable = true;
 
