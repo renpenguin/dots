@@ -20,7 +20,5 @@
     gimp
 
     gcc rustup python3
-
-    synology-drive-client
   ];
 }

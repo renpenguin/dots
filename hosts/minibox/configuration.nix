@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }: {
+{ inputs, ... }: {
   imports = [
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.default
@@ -19,7 +19,10 @@
       hostName = "minibox";
     };
     audio.enable = true;
-    laptop.enable = true;
+    laptop = {
+      enable = true;
+      ignorePowerKey = false;
+    };
     corePackages = {
       enable = true;
       fonts.enable = true;
