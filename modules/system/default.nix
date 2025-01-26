@@ -37,6 +37,7 @@ in {
       fonts.enable = mkEnableOption "fonts";
     };
     fingerprint.enable = mkEnableOption "fingerprint";
+    qmk.enable = mkEnableOption "QMK and Via";
   };
 
   config = mkMerge [
@@ -147,12 +148,20 @@ in {
       };
     })
 
+    ## Fingerprint
     (mkIf cfg.fingerprint.enable {
       services.fprintd.enable = true;
       systemd.services.fprintd = {
         wantedBy = [ "multi-user.target" ];
         serviceConfig.Type = "simple";
       };
+    })
+
+    ## QMK and Via
+    (mkIf cfg.qmk.enable {
+      environment.systemPackages = [ pkgs.via ];
+      services.udev.packages = [ pkgs.via ];
+      hardware.keyboard.qmk.enable = true;
     })
   ];
 }
