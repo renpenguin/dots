@@ -71,8 +71,8 @@ bindsym --locked XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@
 bindsym --locked XF86AudioMute exec wpctl set-mute @DEFAULT_SINK@ toggle
 
 # Brightness control
-# bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
-# bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
+bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
 
 # Screenshot
 bindsym Print exec grim -o Pictures/$(date +'grim_%R_%d_%m_%y.png')
