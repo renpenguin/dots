@@ -1,7 +1,7 @@
 { pkgs, inputs, ... }: {
   imports = [
     inputs.spicetify-nix.homeManagerModules.default
-    ../../modules/desktop-light
+    ../../rices/light-blue
     ../../modules/kitty
     ../../modules/shell
     ../../modules/neovim

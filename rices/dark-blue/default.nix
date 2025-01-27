@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ config, inputs, pkgs, ... }: {
   # wayland.windowManager.hyprland = {
   #   enable = false;
   #   settings = {};
@@ -57,4 +57,13 @@
     name = "catppuccin-macchiato-dark-cursors";
     size = 24;
   };
+
+  ## Spotify config
+  programs.spicetify =
+    let spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
+    in {
+      enable = true;
+      theme = spicePkgs.themes.catppuccin;
+      colorScheme = "macchiato";
+    };
 }

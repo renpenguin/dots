@@ -1,7 +1,7 @@
 { pkgs, inputs, lib, ... }: {
   imports = [
     inputs.spicetify-nix.homeManagerModules.default
-    ../../modules/desktop
+    ../../rices/dark-blue
     ../../modules/kitty
     ../../modules/shell
     ../../modules/neovim
@@ -39,14 +39,6 @@
     steam
     lunar-client
   ];
-
-  programs.spicetify =
-    let spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
-    in {
-      enable = true;
-      theme = spicePkgs.themes.catppuccin;
-      colorScheme = "macchiato";
-    };
 
   xdg.desktopEntries = lib.attrsets.genAttrs [
     "nm-connection-editor" "nixos-manual" 
