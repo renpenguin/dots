@@ -15,7 +15,7 @@
       # luajitPackages.lua-lsp
       nil
       clang-tools
-      rustup
+      rust-analyzer
     ];
 
     plugins = with pkgs.vimPlugins; [

@@ -1,9 +1,7 @@
 { pkgs, lib, config, inputs, ... }: # Default settings that are to appear on every configuration
 
-with lib;
 let cfg = config.modules.system;
-
-in {
+in with lib; {
   options.modules.system = {
     boot = {
       enable = mkEnableOption "boot";
