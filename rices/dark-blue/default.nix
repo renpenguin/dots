@@ -30,6 +30,13 @@
     ".config/dunst/dunstrc".source = ./dunstrc;
     ".config/fuzzel/fuzzel.ini".source = ./fuzzel.ini;
   };
+  
+  imports = [ ../../modules/kitty ];
+  modules.kitty = {
+    enable = true;
+    foreground = "#93b5af";
+    background = "#151426";
+  };
 
   gtk = {
     enable = true;

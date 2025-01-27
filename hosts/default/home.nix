@@ -2,7 +2,6 @@
   imports = [
     inputs.spicetify-nix.homeManagerModules.default
     ../../rices/dark-blue
-    ../../modules/kitty
     ../../modules/shell
     ../../modules/neovim
     ../../themes/Vesktop

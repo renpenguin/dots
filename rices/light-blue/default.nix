@@ -10,7 +10,14 @@
     ".config/sway/config".source = ./sway-config;
     ".config/i3blocks/config".source = ./i3blocks-config;
   };
-
+  
+  imports = [ ../../modules/kitty ];
+  modules.kitty = {
+    enable = true;
+    foreground = "#93b5af";
+    background = "#151426";
+  };
+  
   gtk = {
     enable = true;
     gtk2.configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
