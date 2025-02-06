@@ -14,6 +14,8 @@
 
       clear = "echo -n '\\e[H\\e[3J'";
       cls   = "clear";
+      lst   = "ls -TL2";
+      lstn  = "ls -TL";
     };
 
     initExtra = ''
@@ -64,9 +66,7 @@
     extraConfig = {
       init.defaultBranch = "master";
       advice.addIgnoredFile = false;
-      push.followTags = true;
       credential.helper = "manager";
-      # credential."https://github.com".username = "renpenguin";
       credential.credentialStore = "cache";
     };
   };
