@@ -7,7 +7,7 @@
     * @website https://redpengu.in/#dots
 **/
 
-:root {
+:root, .theme-dark {
     /* --- Colour scheme --- */
     --db-background: #1a1d2c;
     --db-pane: #151426;
@@ -57,7 +57,7 @@
     --blurple-border: 1px solid rgb(31, 47, 71);
     --border-radius: 5px;
     --divide-color: var(--brand-experiment);
-    --brand-experiment: rgb(88, 101, 242);
+    --brand-experiment: var(--db-accent-1);
     --deprecated-quickswitcher-input-background: var(--channeltextarea-background)
 }
 
@@ -105,40 +105,40 @@
 
 /* Ren's changes */
 
-.theme-dark .message_d5deea.selected_d5deea, .theme-dark.mouse-mode.full-motion .message_d5deea:hover /* Message hover colour */ {
+.theme-dark [class*="message"][class*="selected"], .theme-dark.mouse-mode.full-motion [class*="message"]:hover /* Message hover colour */ {
     background: color-mix(in srgb, var(--db-pane), transparent 80%);
 }
 
-.channelTextAreaDisabled_d0696b .scrollableContainer_d0696b { /* Disabled message box has consistent colour */
+[class*="channelTextAreaDisabled"] [class*="scrollableContainer"] { /* Disabled message box has consistent colour */
     opacity: 1;
 }
 
-[class^="circleIcon"] { /* Colours for the add/discover server buttons */
+[class*="circleIcon"] { /* Colours for the add/discover server buttons */
     color: var(--db-accent-1);
 }
 
-[class^="channelTextArea"] { /* Adjust message box position */
+[class*="channelTextArea"] { /* Adjust message box position */
     margin: 5px 0;
 }
 
-.form_a7d72e {
+[class*="chatContent"] > [class*="form"] {
     background: var(--bg-overlay-2);
     padding: 0px;
 }
 
-.form_a7d72e:before {
+[class*="chatContent"] > [class*="form"]:before {
     background: none;
 }
 
-[class^="attachWrapper"] { /* Align message box buttons to the bottom to stay in line with mute/deafen/settings buttons */
+[class*="attachWrapper"] { /* Align message box buttons to the bottom to stay in line with mute/deafen/settings buttons */
     align-self: flex-end;
 }
 
-[class^="buttons_"] {
+[class*="buttons_"] {
     align-self: flex-end;
 }
 
-.base_d7ebeb { /* Move typing/slowmode indicator above message box */
+[class*="form"] > [class*="typing"] { /* Move typing/slowmode indicator above message box */
     top: -24px;
     bottom: 0px;
     left: 0px;
@@ -148,43 +148,55 @@
     pointer-events: none;
 }
 
-[class^="panels_"] > [class^="wrapper"] > [class^="container_"] { /* Customise the look of the voice chat panel */
+[class*="panels_"] > [class*="wrapper"] > [class*="container_"] { /* Customise the look of the voice chat panel */
     border: none;
     background: var(--db-pane);
 }
 
-[class^="callContainer"] { /* Stream pane background */
+[class*="callContainer"] { /* Stream pane background */
     background-color: var(--db-pane);
 }
 
-[class^="videoControls"] > [class^="gradient"] { /* Stream pane shadow on top and bottom */
+[class*="videoControls"] > [class*="gradient"] { /* Stream pane shadow on top and bottom */
     display: none;
 }
 
-[class^="chat"] > [class^="content"]:before, /* Remove header bar box-shadows */
-[class^="tabBody"]:before,
-[class^="searchBar"], [class^="header"] {
+[class*="chat"] > [class*="content"]:before, /* Remove header bar box-shadows */
+[class*="tabBody"]:before,
+[class*="searchBar"], [class*="header"] {
     box-shadow: none;
 }
 
-[class^="scroller"] {
+[class*="scroller"] {
     border-left: none;
 }
 
-[class^="channelAppLauncher"] { /* Remove activity launcher from message bar */
+[class*="channelAppLauncher"] { /* Remove activity launcher from message bar */
     display: none;
 }
 
 /* End Ren's changes */
 
-.resultsGroup-r_nuzN {
+[class*="menu_"], 
+[aria-label="Message Actions"] > div,
+[class*="mainCard_"] {
+    border: var(--border);
+    border-radius: var(--border-radius);
+    background-color: var(--background-secondary);
+}
+
+[class*="list_"] {
+    background: var(--background-primary)
+}
+
+[class*="resultsGroup"] {
     background-color: var(--background-secondary);
     border-radius: var(--border-radius);
     border-left: var(--border);
     border-right: var(--border);
 }
 
-.lookBlank-3eh9lL {
+[class*="lookBlank"] {
     color: var(--text-normal);
 }
 
@@ -192,7 +204,7 @@
     background-color: rgb(43, 50, 59) !important;
 }
 
-.mentioned-xhSam7:before {
+[class*="mentioned"]:before {
     background-color: var(--brand-experiment);
 }
 
@@ -273,11 +285,6 @@
     background-color: var(--background-secondary);
     border-top: var(--border);
     border-bottom: var(--border);
-}
-
-.menu-3sdvDG {
-    border: var(--border);
-    border-radius: var(--border-radius);
 }
 
 .container-enaOkj, .messagesPopoutWrap-1MQ1bW, .role-3UN8jj:hover {

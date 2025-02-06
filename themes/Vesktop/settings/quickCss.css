@@ -2,11 +2,13 @@
     display: none;
 }
 
-.theme-dark .children_fc4f04:after { /* Remove channel title fade for long channel names */
+.theme-dark [class^="children"]:after { /* Remove channel title fade for long channel names */
     display: none;
 }
 
-[class^="toolbar_"] a { /* Hide help icon in top right */
+[class^="toolbar_"] > [aria-label^="Notification Settings"],
+[class^="toolbar_"] > [class^="recentsIcon_"],
+[class^="toolbar_"] > a { /* Clean up top right toolbar */
     display: none;
 }
 
@@ -43,11 +45,16 @@ div#channels > [class^="content_"] > div:first-child,
     right: 0;
 }
 
-[class^="separator"] { /* remove right click menu separators */
+[class^="menu_"][aria-label^="Message Actions"] > div > :nth-child(-n+5),
+[class^="separator"] { /* Clean up context menu */
     display: none;
 }
 
 [class^="itemsContainer"] > [class^="footer"] {
+    display: none;
+}
+
+[class*="container_"][class*="containerWithMargin_"] { /* Hide boost prompt */
     display: none;
 }
 
