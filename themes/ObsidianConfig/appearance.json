@@ -10,7 +10,7 @@
   ],
   "theme": "obsidian",
   "interfaceFontFamily": "CaskaydiaCove NF Semilight",
-  "monospaceFontFamily": "CaskaydiaMono NFM",
+  "monospaceFontFamily": "CaskaydiaCove NFM",
   "textFontFamily": "Inter",
   "showRibbon": false
 }

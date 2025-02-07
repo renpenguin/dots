@@ -13,8 +13,8 @@ in {
     enable = cfg.enable;
     shellIntegration.enableZshIntegration = true;
     font = {
-      name = "CaskaydiaMono NF";
-      package = pkgs.nerd-fonts.caskaydia-mono;
+      name = "CaskaydiaCove NF";
+      package = pkgs.nerd-fonts.caskaydia-cove;
       size = 12;
     };
     settings = {

@@ -134,7 +134,6 @@ in with lib; {
           font-awesome
           openmoji-color
           nerd-fonts.caskaydia-cove
-          nerd-fonts.caskaydia-mono
         ];
 
         fontconfig = {

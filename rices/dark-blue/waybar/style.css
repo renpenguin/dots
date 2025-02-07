@@ -1,6 +1,5 @@
 * {
-    /* `otf-font-awesome` is required to be installed for icons */
-    font-family: CaskaydiaCove Nerd Font, FontAwesome6Free, Roboto, Helvetica, Arial, sans-serif;
+    font-family: CaskaydiaCove NF, FontAwesome6Free, sans-serif;
     font-size: 14px;
 }
 
