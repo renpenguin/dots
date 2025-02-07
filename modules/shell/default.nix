@@ -9,7 +9,7 @@
 
     shellAliases = {
       rebuild = "sudo nixos-rebuild switch --fast --flake";
-      search-history = "cat ~/.cache/zsh_history | grep";
+      search-packages = "nix repl --expr 'import <nixpkgs>{}'";
       bg-run = "hyprctl dispatch exec --";
 
       clear = "echo -n '\\e[H\\e[3J'";

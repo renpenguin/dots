@@ -19,6 +19,7 @@ in {
     };
     settings = {
       enable_audio_bell = false;
+      confirm_os_window_close = 2;
 
       url_color = "#0087bd";
       url_style = "straight";
