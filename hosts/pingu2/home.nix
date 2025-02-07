@@ -7,9 +7,6 @@
     ../../themes/Vesktop
   ];
 
-  home.username = "ren";
-  home.homeDirectory = "/home/ren";
-
   home.stateVersion = "24.05"; # Don't change under any circumstance
   nixpkgs.config.allowUnfreePredicate = _: true;
   programs.home-manager.enable = true; # Let Home Manager install and manage itself.

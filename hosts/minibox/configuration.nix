@@ -18,7 +18,7 @@
       enable = true;
       hostName = "minibox";
     };
-    audio.enable = true;
+    audio.enable = false;
     laptop = {
       enable = true;
       ignorePowerKey = false;
