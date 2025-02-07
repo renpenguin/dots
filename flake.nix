@@ -28,7 +28,7 @@
 
   in {
     nixosConfigurations = {
-      default = mkSystem "x86_64-linux" "default";
+      pingu2 = mkSystem "x86_64-linux" "pingu2";
       minibox = mkSystem "x86_64-linux" "minibox";
     };
   };

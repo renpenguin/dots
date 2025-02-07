@@ -18,6 +18,6 @@
 
 ## Installing dots
 
-You can install the entire setup onto your system with `sudo nixos-rebuild switch --fast --flake /path/to/root#default`. If you just want the Hyprland dotfiles, you can find those in `modules/desktop`
+You can install the entire setup onto your system with `sudo nixos-rebuild switch --fast --flake /path/to/root#pingu2`. If you just want the Hyprland dotfiles, you can find those in `modules/desktop`
 
 To use the configs in the `rc` directory, follow the individual instructions for each file there
