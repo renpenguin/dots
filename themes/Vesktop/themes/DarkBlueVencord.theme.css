@@ -103,7 +103,7 @@
     --textbox-markdown-syntax: rgb(82, 89, 95);
 }
 
-.theme-dark [class*="message"][class*="selected"], .theme-dark.mouse-mode.full-motion [class*="message"]:hover /* Message hover colour */ {
+.theme-dark [class*="message_"][class*="selected_"], .theme-dark.mouse-mode.full-motion [class*="message_"]:hover /* Message hover colour */ {
     background: color-mix(in srgb, var(--db-pane), transparent 80%);
 }
 
