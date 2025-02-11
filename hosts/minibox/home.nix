@@ -3,6 +3,7 @@
     inputs.spicetify-nix.homeManagerModules.default
     ../../rices/light-blue
     ../../modules/shell
+    ../../modules/yazi
     ../../modules/neovim
   ];
 

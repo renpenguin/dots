@@ -3,7 +3,6 @@
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.default
     ../../modules/system
-    ../../modules/thunar
   ];
 
   ## System config
