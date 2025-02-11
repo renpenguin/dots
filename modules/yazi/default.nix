@@ -1,11 +1,8 @@
 { pkgs, ... }: {
-  programs.zsh.initExtra = ''source ${./yazisetup.sh}'';
-
-  home.packages = with pkgs; [ imv ffmpeg p7zip ];
-
   programs.yazi = {
     enable = true;
     enableZshIntegration = true;
+    shellWrapperName = "y";
     settings = {
       opener.play = [
         { run = ''${./viv.sh} "$@"''; orphan = true; for = "unix"; }
@@ -20,4 +17,6 @@
       ];
     };
   };
+
+  home.packages = with pkgs; [ imv ffmpeg p7zip ];
 }
