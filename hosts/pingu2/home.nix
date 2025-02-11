@@ -17,7 +17,7 @@
   home.packages = with pkgs; [
     firefox
     obsidian
-    blender
+    # blender
     rustdesk
     gimp
 
