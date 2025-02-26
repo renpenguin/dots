@@ -12,23 +12,20 @@
   nixpkgs.config.allowUnfreePredicate = _: true;
   programs.home-manager.enable = true; # Let Home Manager install and manage itself.
 
-  home.sessionPath = [ "$HOME/.cargo/bin" ];
-
   home.packages = with pkgs; [
     firefox
     obsidian
-    # blender
+    blender
     rustdesk
     gimp
 
-    vscode
-    gcc rustup python3
+    gcc cargo rustc python3
     godot_4
 
     thunderbird
     synology-drive-client
 
-    baobab
+    baobab display3d
     vlc
 
     obs-studio
@@ -36,6 +33,11 @@
     steam
     lunar-client
   ];
+
+  programs.vscode = {
+    enable = true;
+    package = pkgs.vscode.fhsWithPackages (ps: with ps; [ rust-analyzer rustfmt clang-tools ]);
+  };
 
   xdg.desktopEntries = lib.attrsets.genAttrs [
     "nm-connection-editor" "nixos-manual"
