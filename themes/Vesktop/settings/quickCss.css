@@ -2,6 +2,10 @@
     display: none;
 }
 
+[class^="app_"] > [class^="layers_"] > div { /* Fix for that weird height bug */
+    height: 100%;
+}
+
 .theme-dark [class^="children"]:after { /* Remove channel title fade for long channel names */
     display: none;
 }
