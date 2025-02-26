@@ -6,7 +6,8 @@
   "enabledCssSnippets": [
     "colours",
     "page-break",
-    "ObsidianColours"
+    "ObsidianColours",
+    "pdf"
   ],
   "theme": "obsidian",
   "interfaceFontFamily": "CaskaydiaCove NF Semilight",

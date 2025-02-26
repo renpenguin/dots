@@ -1,5 +1,5 @@
-/* Page breaks */
 @media print {
+  /* Page breaks */
   hr {
       opacity: 0;
       margin: 0;
@@ -12,6 +12,12 @@
   h2, h3, h4, h5, h6 {
     page-break-after: avoid;
   }
+
+  /* Links */
+  a:link {
+    color: #000040;
+  }
+
   /* optional */
   .internal-embed {
     page-break-after: avoid;
