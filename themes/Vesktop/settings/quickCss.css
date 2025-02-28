@@ -16,7 +16,7 @@
     display: none;
 }
 
-[class^="buttons_"] > button { /* Remove nitro button in the message box */
+[class^="buttons_"] > button[aria-label="Send a gift"] { /* Remove nitro button in the message box */
     display: none;
 }
 
