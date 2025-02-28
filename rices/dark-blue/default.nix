@@ -12,7 +12,7 @@
     networkmanagerapplet
     xwaylandvideobridge
     brightnessctl playerctl
-    grim slurp hyprpicker jq
+    grimblast jq
     wlogout
     dunst libnotify
     waybar
