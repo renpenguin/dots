@@ -11,7 +11,7 @@
 
 ## Custom application themes
 
-- [Firefox (Firefox Colour link)](https://color.firefox.com/?theme=XQAAAAI5AQAAAAAAAABBKYhm849SCia3ftKEGccwS-xMDPr07qaHbYNzVWm9pdZWuSbUxoTOwv_PHaC7hs1paoxg9q2vdsZDln5DctMZmmL1UI1JbR4fWnRJS8bfXxdFI48Kct99Z2HeyLd4RKyMcqENeGj7h1bTVwywo7YctWkf0QG_by_q8A-fl6feqavHyJYnLkzilrKgKzMKf9sEkID6FBfsZ8XoItKsGlTc3EkRAUiRMj3DMHCo3kmkmI_BoStBv1TXG1x6g_8KQ4AA)
+- [Librewolf (Firefox Colour link)](https://color.firefox.com/?theme=XQAAAAI5AQAAAAAAAABBKYhm849SCia3ftKEGccwS-xMDPr07qaHbYNzVWm9pdZWuSbUxoTOwv_PHaC7hs1paoxg9q2vdsZDln5DctMZmmL1UI1JbR4fWnRJS8bfXxdFI48Kct99Z2HeyLd4RKyMcqENeGj7h1bTVwywo7YctWkf0QG_by_q8A-fl6feqavHyJYnLkzilrKgKzMKf9sEkID6FBfsZ8XoItKsGlTc3EkRAUiRMj3DMHCo3kmkmI_BoStBv1TXG1x6g_8KQ4AA)
 - Vencord (`themes/DarkBlueVencord.theme.css`)
 - Obsidian Config (`themes/ObsidianConfig/`)
 - all other applications use Catppuccin Macchiato

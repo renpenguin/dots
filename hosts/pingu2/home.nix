@@ -5,6 +5,7 @@
     ../../modules/shell
     ../../modules/yazi
     ../../modules/neovim
+    ../../modules/librewolf
     ../../themes/Vesktop
   ];
 
@@ -13,7 +14,6 @@
   programs.home-manager.enable = true; # Let Home Manager install and manage itself.
 
   home.packages = with pkgs; [
-    firefox
     obsidian
     blender
     rustdesk
