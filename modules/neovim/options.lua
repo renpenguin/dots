@@ -12,6 +12,7 @@ vim.o.termguicolors = true
 vim.o.updatetime = 300
 
 vim.o.number = true
+vim.o.relativenumber = true
 vim.o.linebreak = true
 vim.o.expandtab = true
 vim.o.tabstop = 4

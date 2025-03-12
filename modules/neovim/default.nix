@@ -16,6 +16,7 @@
       nil
       clang-tools
       rust-analyzer
+      python312Packages.python-lsp-server
     ];
 
     plugins = with pkgs.vimPlugins; [
