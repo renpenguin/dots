@@ -16,7 +16,6 @@
   home.packages = with pkgs; [
     obsidian
     blender
-    rustdesk
     gimp
 
     gcc cargo rustc python3
