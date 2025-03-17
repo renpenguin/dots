@@ -15,8 +15,8 @@ local on_attach = function(_, bufnr)
   bufmap('<leader>D', vim.lsp.buf.type_definition)
 
   bufmap('gr', require('telescope.builtin').lsp_references)
-  bufmap('<leader>s', require('telescope.builtin').lsp_document_symbols)
-  bufmap('<leader>S', require('telescope.builtin').lsp_dynamic_workspace_symbols)
+  bufmap('<leader>fs', require('telescope.builtin').lsp_document_symbols)
+  bufmap('<leader>fS', require('telescope.builtin').lsp_dynamic_workspace_symbols)
 
   bufmap('K', vim.lsp.buf.hover)
   bufmap('<leader>e', vim.diagnostic.open_float)
@@ -28,6 +28,25 @@ end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+
+-- Custom floating window border
+local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+  opts = opts or {}
+  opts.border = opts.border or {
+    {"╭", "FloatBorder"},
+    {"─", "FloatBorder"},
+    {"╮", "FloatBorder"},
+    {"│", "FloatBorder"},
+    {"╯", "FloatBorder"},
+    {"─", "FloatBorder"},
+    {"╰", "FloatBorder"},
+    {"│", "FloatBorder"},
+  }
+  return orig_util_open_floating_preview(contents, syntax, opts, ...)
+end
+
+-- Language Servers
 
 require('lspconfig').nil_ls.setup {
     on_attach = on_attach,
