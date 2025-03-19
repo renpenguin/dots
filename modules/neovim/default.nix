@@ -81,10 +81,12 @@
         config = toLuaFile ./plugins/treesitter.lua;
       }
 
-      {
+      { # Git staging
         plugin = gitsigns-nvim;
         config = toLuaFile ./plugins/gitsigns.lua;
       }
+
+      markdown-preview-nvim
     ];
 
     extraLuaConfig = ''
