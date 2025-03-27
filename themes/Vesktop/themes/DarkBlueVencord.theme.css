@@ -121,7 +121,7 @@
 
 [class*="chatContent"] > [class*="form"] {
     background: var(--bg-overlay-2);
-    padding: 0px;
+    padding-left: 0px;
 }
 
 [class*="chatContent"] > [class*="form"]:before {
@@ -182,7 +182,11 @@
 }
 
 [class*="list_"] {
-    background: var(--background-primary)
+    /* background: var(--background-primary) */
+}
+
+[class*="inspector_"] {
+    background-color: transparent;
 }
 
 [class*="resultsGroup"] {

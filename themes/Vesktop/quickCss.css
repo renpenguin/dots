@@ -24,8 +24,9 @@
     display: none;
 }
 
+[class*="channelAppLauncher_"],
 [class^="actionButtons"] button:nth-child(3) { /* Hide Activity Action */
-    display: none;
+    display: none !important;
 }
 
 [class^="lottieIcon"] { /* Fixed Share Screen action button being a weird size */
