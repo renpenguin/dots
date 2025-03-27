@@ -1,10 +1,11 @@
-{ pkgs, ... }: {
+{ ... }: {
   programs.librewolf = {
     enable = true;
 
     languagePacks = [ "en-GB" ];
     settings = {
       "browser.toolbars.bookmarks.visibility" = "newtab";
+      "browser.tabs.allowTabDetach" = false;
       "middlemouse.paste" = false;
 
       "browser.search.separatePrivateDefault" = false;
