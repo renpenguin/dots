@@ -1,3 +1,5 @@
+#vc-notification-container { display: none; } /* Hide Vencord Update notifications */
+
 [class^="profileEffects"], [class^="avatarDecoration"] { /* Remove invasive profile decorations */
     display: none;
 }

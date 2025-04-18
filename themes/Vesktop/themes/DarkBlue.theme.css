@@ -1,0 +1,140 @@
+/**
+    * @name Dark Blue 2.0
+    * @version 2.0.0
+    * @description Dark Blue Theme for my dotfiles
+    * @author Ren
+    * @source https://github.com/redpenguinyt/dots/blob/master/themes/DarkBlueVencord.theme.css
+    * @website https://redpengu.in/#hyprdots
+**/
+
+:root {
+    /* --- Colour scheme --- */
+    --db-background: #1a1d2c;
+    --db-pane: #151426;
+    --db-accent-1: #91bfff;
+    --db-accent-2: #8b88dB;
+    --db-text-normal: #93b5af;
+    --db-text-inactive: #657b83;
+}
+
+* {
+    --background-tertiary: var(--db-pane);
+    --background-secondary: var(--db-pane);
+    --bg-base-tertiary: var(--db-pane);
+    --background-base-lower: var(--db-pane);
+    --background-base-lowest: var(--db-pane); /* Channel list */ 
+    --chat-background-default: var(--db-pane); /* Message box */
+    --background-base-low: var(--db-pane);
+    --__header-bar-background: var(--db-pane) !important;
+    --background-surface-high: var(--db-pane);
+    --autocomplete-bg: var(--db-pane);
+    --background-mod-normal: var(--db-pane);
+
+    --background-surface-higher: var(--db-background);
+    --background-surface-highest: var(--db-background);
+    --bg-overlay-chat: var(--db-background);
+    --background-primary: var(--db-background);
+
+    --background-message-hover: color-mix(in srgb, var(--db-pane), transparent 60%);
+    --background-modifier-selected: var(--db-background);
+    --background-modifier-active: var(--db-background);
+    --background-modifier-hover: color-mix(in srgb, var(--db-background), transparent 60%);
+    --shadow-low: 0 12px 24px 0 hsl(none 0% 0%/0.24) !important;
+
+    --text-default: var(--db-text-normal);
+    --text-primary: var(--db-text-normal);
+    --text-normal: var(--db-text-normal);
+    --text-tertiary: var(--db-text-inactive);
+    --text-muted: var(--db-text-inactive);
+    --interactive-hover: var(--db-text-normal);
+    --header-primary: var(--db-text-normal);
+    --header-secondary: var(--db-text-normal);
+    --white: var(--db-text-normal);
+    --channels-default: var(--db-text-inactive);
+
+    --interactive-active: var(--db-text-normal);
+    --interactive-normal: var(--db-text-inactive);
+
+    --icon-primary: var(--db-text-normal);
+    --icon-secondary: var(--db-text-inactive);
+    --icon-tertiary: var(--db-text-inactive);
+    --channel-icon: var(--db-text-inactive);
+
+    --text-link: var(--db-accent-1);
+}
+
+/* Remove the awful top bar */
+[class^="base_"] { grid-template-rows: none !important; } 
+/* @supports (grid-template-columns:subgrid) { .visual-refresh [class^="base_"] { grid-template-rows: none; } }  */
+[class^="bar_"] { display: none; }
+[class*="guilds_"] { top: 15px; }
+
+/* Fix user + VC panel */
+[class^="panels_"] {
+    border-radius: 0 !important;
+    border: none !important;
+    left: 0 !important;
+    bottom: 0 !important;
+    width: 100% !important;
+}
+[class^="panels_"] > [class*="container_"] { padding: 6px; box-shadow: 0 -5px 20px var(--db-pane); }
+[class^="panels_"] * { border: none; }
+
+/* Remove separators from direct messages page */
+[class^="sectionDivider_"] { height: 0 !important; }
+
+/* Clean up DM channel list */
+[class*="sidebarList_"], [class*="page_"] > [class*="container_"] { border-top: none; }
+[class^="privateChannels_"] > [class^="searchBar_"] { display: none; }
+[class^="privateChannels_"] ul[class*="content_"] > :first-child {
+    height: 3.5px !important;
+}
+
+/* Fix message bar */
+[class*="form_"] { padding: 0 !important; }
+[class^="channelTextArea"] {
+    margin: 0;
+    border: none;
+}
+[class*="themedBackground_"] { 
+    box-shadow: 0 -10px 15px var(--db-background);
+    border-radius: 0; /* Remove rounding from message box */
+}
+[class*="form"] > [class*="typing"] { /* Move typing/slowmode indicator above message box */
+    top: -24px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    padding-right: 16px;
+    background: color-mix(in srgb, var(--db-pane), transparent 80%);
+    pointer-events: none;
+}
+[class*="chatContent_"] ol[class*="scrollerInner"] { /* Nicer spacing at bottom of messages */
+    padding-bottom: 8px;
+}
+
+[class*="title_"] { /* Fix weird padding in channel title */
+    padding-left: 4px !important;
+}
+/* Unread messages popup */
+[class*="newMessagesBar_"] {
+    background: var(--db-pane);
+    border-top: none !important;
+}
+
+/* Useless channel list borders */
+[class*="sidebarListRounded_"],
+[class*="chat_"][data-has-border=true],
+[class*="sidebarListRounded"] header[class*="header_"] { border: none !important; }
+
+/* Channel list resize handle */
+[class*="sidebarResizeHandle_"] { display: none !important; }
+
+ul[aria-label="Channels"] > [class^="sectionDivider_"] { display: none; }
+[class^="headerEllipseForeground_"] { /* Remove server title shadow */
+    display: none !important;
+}
+li[class*="containerDefault__"] { padding-top: 8px; } /* Category spacing */
+[class*="unreadImportant_"] { /* Channel unread indicator */
+    background-color: var(--text-normal) !important;
+}
