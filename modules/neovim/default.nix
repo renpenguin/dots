@@ -15,7 +15,7 @@
       # luajitPackages.lua-lsp
       nil
       clang-tools
-      rust-analyzer
+      rust-analyzer rustfmt
       python312Packages.python-lsp-server
     ];
 
