@@ -27,7 +27,7 @@
 }
 
 [class*="channelAppLauncher_"],
-[class^="actionButtons"] button:nth-child(3) { /* Hide Activity Action */
+[class^="actionButtons"] > button:nth-child(5) { /* Hide Activity Action */
     display: none !important;
 }
 
@@ -48,11 +48,15 @@ div#channels > [class^="content_"] > div:first-child,
     display: none;
 }
 
+/* Remove invite to channel button */
+[class*="iconItem_"]:first-child { display: none !important; }
+
 [class^="jumpToPresentBar"] { /* Fix Jump to Present button not being right aligned */
     right: 0;
 }
 
-[class^="menu_"][aria-label^="Message Actions"] > div > :nth-child(-n+5),
+[class^="menu_"][aria-label^="Message Actions"] > div > :nth-child(-n+3),
+[class^="menu_"][aria-label^="Message Actions"] > div > :nth-child(4) > :not(:nth-child(2)),
 [class^="separator"] { /* Clean up context menu */
     display: none;
 }

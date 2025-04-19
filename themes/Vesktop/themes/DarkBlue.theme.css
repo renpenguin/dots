@@ -29,9 +29,14 @@
     --background-surface-high: var(--db-pane);
     --autocomplete-bg: var(--db-pane);
     --background-mod-normal: var(--db-pane);
+    --background-mod-subtle: var(--db-pane);
+    --message-reacted-background: var(--db-pane);
+    --black: var(--db-pane); /* VC background */
 
+    --plum-23: var(--db-background); /* VC buttons */
     --background-surface-higher: var(--db-background);
     --background-surface-highest: var(--db-background);
+    --background-floating: var(--db-background);
     --bg-overlay-chat: var(--db-background);
     --background-primary: var(--db-background);
 
@@ -61,12 +66,12 @@
     --channel-icon: var(--db-text-inactive);
 
     --text-link: var(--db-accent-1);
+    --message-reacted-text: var(--db-accent-2);
+    --blurple-50: var(--db-accent-2);
 }
 
 /* Remove the awful top bar */
-[class^="base_"] { grid-template-rows: none !important; } 
-/* @supports (grid-template-columns:subgrid) { .visual-refresh [class^="base_"] { grid-template-rows: none; } }  */
-[class^="bar_"] { display: none; }
+[class^="base_"] { grid-template-rows: [top] 0 [titleBarEnd] 0 [noticeEnd] 1fr [end] !important; } 
 [class*="guilds_"] { top: 15px; }
 
 /* Fix user + VC panel */
@@ -112,6 +117,7 @@
 [class*="chatContent_"] ol[class*="scrollerInner"] { /* Nicer spacing at bottom of messages */
     padding-bottom: 8px;
 }
+[class*="entryPointButtonContainer_"] { display: none; } /* Bot commands button */
 
 [class*="title_"] { /* Fix weird padding in channel title */
     padding-left: 4px !important;
@@ -134,7 +140,7 @@ ul[aria-label="Channels"] > [class^="sectionDivider_"] { display: none; }
 [class^="headerEllipseForeground_"] { /* Remove server title shadow */
     display: none !important;
 }
-li[class*="containerDefault__"] { padding-top: 8px; } /* Category spacing */
+li[class*="containerDefault__"] { padding-top: 16px; } /* Category spacing */
 [class*="unreadImportant_"] { /* Channel unread indicator */
     background-color: var(--text-normal) !important;
 }
