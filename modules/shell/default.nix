@@ -18,7 +18,7 @@
       lstn  = "ls -TL";
     };
 
-    initExtra = ''
+    initContent = ''
       setopt auto_pushd
       bindkey "^[[1;5C" forward-word
       bindkey "^[[1;5D" backward-word

@@ -1,12 +1,4 @@
-{ pkgs, ... }: 
-let 
-  yazi-plugins = pkgs.fetchFromGitHub {
-		owner = "yazi-rs";
-		repo = "plugins";
-		rev = "8945e543ebbaa25de155b7101a917eba007252f2";
-		hash = "sha256-ko/vvItKtQSz5rbP3TMb4R1bywW2q8hj7E/A++vhVqQ=";
-	};
-in {
+{ pkgs, ... }: {
   programs.yazi = {
     enable = true;
     enableZshIntegration = true;
@@ -18,17 +10,11 @@ in {
       ];
     };
 
-    plugins = {
-      chmod = "${yazi-plugins}/chmod.yazi";
-      full-border = "${yazi-plugins}/full-border.yazi";
-			max-preview = "${yazi-plugins}/max-preview.yazi";
-			mount = "${yazi-plugins}/mount.yazi";
-			starship = pkgs.fetchFromGitHub {
-				owner = "Rolv-Apneseth";
-				repo = "starship.yazi";
-				rev = "d1cd0a38aa6a2c2e86e62a466f43e415f781031e";
-				sha256 = "sha256-XiEsykudwYmwSNDO41b5layP1DqVa89e6Emv9Qf0mz0=";
-			};
+    plugins = with pkgs.yaziPlugins; {
+      chmod = chmod;
+      full-border = full-border;
+			mount = mount;
+      starship = starship;
     };
 
     initLua = ''
@@ -48,11 +34,6 @@ in {
           run = "plugin mount";
           desc = "View drive mounting options";
         }
-        {
-          on = "T";
-					run = "plugin max-preview";
-					desc = "Maximize or restore the preview pane";
-				}
 				{
           on = ["c" "m"];
 					run = "plugin chmod";
