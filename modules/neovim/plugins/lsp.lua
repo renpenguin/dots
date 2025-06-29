@@ -47,26 +47,15 @@ function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
 end
 
 -- Language Servers
+-- Split LSP_PATH at `:`, and attempt to connect to each language server
 
-require('lspconfig').nil_ls.setup {
+local lsp_path = os.getenv("LSP_PATH") or ""
+for server in string.gmatch(lsp_path, "([^:]+)") do
+  require('lspconfig')[server].setup {
     on_attach = on_attach,
     capabilities = capabilities,
-}
-
-require('lspconfig').clangd.setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-}
-
-require('lspconfig').pylsp.setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-}
-
-require('lspconfig').rust_analyzer.setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-}
+  }
+end
 
 -- Lua Language Server
 -- require('lspconfig').lua_ls.setup {

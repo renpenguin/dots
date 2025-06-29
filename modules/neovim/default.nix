@@ -11,14 +11,6 @@
     vimAlias = true;
     vimdiffAlias = true;
 
-    extraPackages = with pkgs; [
-      # luajitPackages.lua-lsp
-      nil
-      clang-tools
-      rust-analyzer rustfmt
-      python312Packages.python-lsp-server
-    ];
-
     plugins = with pkgs.vimPlugins; [
       {
         plugin = nvim-lspconfig;
@@ -89,6 +81,15 @@
       markdown-preview-nvim
     ];
 
+    # Default language server packages
+    extraPackages = with pkgs; [
+      # luajitPackages.lua-lsp
+      nil
+      clang-tools
+      rust-analyzer rustfmt
+      python312Packages.python-lsp-server
+    ];
+
     extraLuaConfig = ''
       ${builtins.readFile ./options.lua}
     '';
@@ -96,6 +97,9 @@
   home.shellAliases.v = "nvim";
   home.shellAliases.vdiff = "nvim $(git status --porcelain | awk '{print $2}')";
   programs.git.extraConfig.merge.tool = "nvimdiff";
+
+  # Default language servers (more can be added by appending language servers to LSP_PATH)
+  programs.zsh.sessionVariables.LSP_PATH = "nil_ls:clangd:pylsp:rust_analyzer";
 
   # Clangd C-only config
   home.file.".config/clangd/config.yaml".text = ''CompileFlags:
