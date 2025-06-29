@@ -3,7 +3,7 @@
   "alwaysUpdateLinks": true,
   "attachmentFolderPath": "Attachments",
   "showInlineTitle": true,
-  "vimMode": false,
+  "vimMode": true,
   "strictLineBreaks": false,
   "readableLineLength": true,
   "pdfExportSettings": {

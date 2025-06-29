@@ -112,5 +112,39 @@
       ],
       "key": "ArrowRight"
     }
+  ],
+  "editor:context-menu": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "Escape"
+    }
+  ],
+  "text-snippets-obsidian:text-snippets": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "Tab"
+    }
+  ],
+  "editor:focus-left": [
+    {
+      "modifiers": [
+        "Alt",
+        "Mod"
+      ],
+      "key": "ArrowLeft"
+    }
+  ],
+  "editor:focus-right": [
+    {
+      "modifiers": [
+        "Alt",
+        "Mod"
+      ],
+      "key": "ArrowRight"
+    }
   ]
 }
