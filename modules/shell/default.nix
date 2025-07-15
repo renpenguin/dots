@@ -36,7 +36,7 @@
 
     oh-my-zsh = {
       enable = true;
-      plugins = ["git" "thefuck"];
+      plugins = ["git"];
       theme = "robbyrussell";
     };
   };
@@ -44,7 +44,6 @@
   home.shellAliases.nixdiff = "${pkgs.nvd}/bin/nvd diff $(\\ls -d1v /nix/var/nix/profiles/system-*-link|tail -n 2)";
 
   programs.fzf.enable = true;
-  programs.thefuck.enable = true;
 
   programs.ripgrep.enable = true;
   home.shellAliases.grep = "rg";
