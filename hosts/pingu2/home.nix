@@ -6,7 +6,6 @@
     ../../modules/yazi
     ../../modules/neovim
     ../../modules/librewolf
-    ../../themes/Vesktop
   ];
 
   home.stateVersion = "24.05"; # Don't change under any circumstance
@@ -21,6 +20,7 @@
     gcc cargo rustc python3
     godot_4
 
+    vesktop
     thunderbird
     synology-drive-client
 
