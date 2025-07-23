@@ -84,6 +84,7 @@ in with lib; {
       networking.hostName = cfg.network.hostName;
       networking.networkmanager.enable = true;
       systemd.services.NetworkManager-wait-online.enable = false; # Avoid waiting for network on boot
+      services.tailscale.enable = true;
     })
 
     ## Sound

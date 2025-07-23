@@ -22,7 +22,7 @@
 
     vesktop
     thunderbird
-    synology-drive-client
+    nextcloud-client
 
     baobab display3d
     vlc
