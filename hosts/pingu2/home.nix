@@ -30,7 +30,7 @@
     obs-studio
     osu-lazer-bin
     steam
-    lunar-client
+    lunar-client prismlauncher
   ];
 
   programs.vscode = {

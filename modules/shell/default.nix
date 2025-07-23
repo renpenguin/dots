@@ -8,7 +8,7 @@
     syntaxHighlighting.enable = true;
 
     shellAliases = {
-      rebuild = "sudo nixos-rebuild switch --fast --flake";
+      rebuild = "sudo nixos-rebuild switch --no-reexec --flake";
       search-packages = "nix repl --expr 'import <nixpkgs>{}'";
       bg-run = "hyprctl dispatch exec --";
 
